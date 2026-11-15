@@ -1,19 +1,8 @@
-# BiasharaDesk
+# Anyph Kipngetich - Developer Portfolio
 
-BiasharaDesk is a Next.js app for Kenyan businesses. Supabase provides email/password authentication and the PostgreSQL database.
-
-## Connect Supabase
-
-1. Create a Supabase project.
-2. In the Supabase SQL Editor, run `supabase/migrations/001_initial_schema.sql`, then `supabase/migrations/002_auth_and_tenant_policies.sql`.
-3. Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` to your project's URL and publishable (or legacy anon) key.
-4. In Supabase Authentication settings, enable email/password sign-in and set `http://localhost:3000` as a local redirect URL.
-
-The registration form creates an auth user. A database trigger saves the user's profile and business, including when email confirmation is required. Row-level security policies restrict business records to their owner. Users can be viewed in the Supabase dashboard under **Authentication → Users**.
+A responsive, editorial-style portfolio built with Next.js 16, React, TypeScript, and Tailwind CSS. It includes Home, About, Projects, and Contact pages and highlights BiasharaDesk as a flagship case study.
 
 ## Run locally
-
-Install dependencies and start the development server:
 
 ```bash
 npm install
@@ -22,7 +11,11 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-Run the project checks with:
+## Contact form setup
+
+The contact form uses Web3Forms. Create a free access key for `anyphbett9@gmail.com`, then set `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` in `.env.local` and in the deployment provider's environment settings. Restart or redeploy after setting the key. Without it, the form explains that it is not connected and direct email remains available.
+
+## Quality checks
 
 ```bash
 npm run lint

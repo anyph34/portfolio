@@ -1,67 +1,107 @@
 import Link from "next/link";
+import { ArrowRight, MapPin } from "lucide-react";
+
+import { BiasharaMock } from "@/components/biashara-mock";
+import { HeroSlider } from "@/components/hero-slider";
+import { SiteShell } from "@/components/site-shell";
+import { SkillCard } from "@/components/skill-card";
+import { skillGroups } from "@/lib/portfolio";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-slate-100 text-slate-900">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <header className="mb-10 flex items-center justify-between rounded-full border border-slate-200 bg-white px-5 py-3 shadow-sm">
-          <div className="text-lg font-bold tracking-tight text-slate-900">BiasharaDesk</div>
-          <nav className="flex items-center gap-4 text-sm font-medium text-slate-600">
-            <Link href="/login" className="rounded-full px-3 py-2 transition hover:bg-slate-100">
-              Login
-            </Link>
-            <Link
-              href="/register"
-              className="rounded-full bg-emerald-600 px-4 py-2 text-white transition hover:bg-emerald-500"
-            >
-              Start free
-            </Link>
-          </nav>
-        </header>
+    <SiteShell>
+      <main className="main-content home-page">
+        <div className="hero-intro">
+          <p className="eyebrow">Portfolio / 2026</p>
+          <span className="hero-location">
+            <MapPin aria-hidden="true" size={14} />
+            Kenya / East Africa
+          </span>
+        </div>
 
-        <section className="grid gap-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm lg:grid-cols-[1.1fr_0.9fr] lg:p-12">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-emerald-600">Multi-tenant SaaS platform</p>
-            <h1 className="mt-4 max-w-xl text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-              Modern operations for growing Kenyan businesses.
-            </h1>
-            <p className="mt-5 max-w-xl text-lg text-slate-600">
-              Manage sales, customers, bookings, inventory, expenses and subscriptions from one secure workspace built for small and medium-sized businesses.
-            </p>
+        <HeroSlider />
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/register"
-                className="rounded-full bg-emerald-600 px-5 py-3 font-medium text-white transition hover:bg-emerald-500"
-              >
-                Create business
-              </Link>
-              <Link
-                href="/dashboard"
-                className="rounded-full border border-slate-200 bg-white px-5 py-3 font-medium text-slate-800 transition hover:border-slate-300"
-              >
-                View dashboard
-              </Link>
+        <section aria-labelledby="featured-heading" className="home-section">
+          <div className="section-heading-row">
+            <div>
+              <p className="section-kicker">Selected work / 01</p>
+              <h2 className="section-title" id="featured-heading">
+                Built for <em>real work.</em>
+              </h2>
             </div>
+            <Link className="button button-outline" href="/projects">
+              All projects
+              <ArrowRight aria-hidden="true" size={15} />
+            </Link>
           </div>
-
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-            <div className="grid gap-4">
-              {[
-                { label: "Total sales today", value: "KES 124,500" },
-                { label: "Customers", value: "1,482" },
-                { label: "Bookings", value: "39" },
-                { label: "Net profit", value: "KES 41,200" },
-              ].map((item) => (
-                <div key={item.label} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                  <div className="text-sm text-slate-500">{item.label}</div>
-                  <div className="mt-2 text-2xl font-bold text-slate-900">{item.value}</div>
-                </div>
-              ))}
+          <article className="featured-project">
+            <div className="featured-copy">
+              <span className="project-number">01 / FLAGSHIP PROJECT</span>
+              <h3 className="project-title">BiasharaDesk</h3>
+              <p className="project-summary">
+                A multi-tenant business operations platform shaped around the practical needs of
+                East African businesses, with KES currency and Nairobi time defaults.
+              </p>
+              <ul aria-label="Project technologies" className="tag-list">
+                <li>Next.js</li>
+                <li>PostgreSQL</li>
+                <li>Supabase</li>
+                <li>Multi-tenant</li>
+              </ul>
+              <div className="button-row">
+                <Link className="button button-primary" href="/projects#biasharadesk">
+                  Read the case study
+                  <ArrowRight aria-hidden="true" size={15} />
+                </Link>
+              </div>
             </div>
+            <div className="product-visual">
+              <BiasharaMock />
+            </div>
+          </article>
+        </section>
+
+        <section aria-labelledby="skills-heading" className="home-section">
+          <div className="section-heading-row">
+            <div>
+              <p className="section-kicker">A practical toolkit</p>
+              <h2 className="section-title" id="skills-heading">
+                Skills in <em>context.</em>
+              </h2>
+            </div>
+            <p className="section-intro">
+              A working set of languages, product tools, and systems knowledge for taking an idea
+              from data model to interface.
+            </p>
+          </div>
+          <div className="skills-strip">
+            {skillGroups.map((group) => (
+              <SkillCard
+                compact
+                icon={group.icon}
+                key={group.title}
+                skills={group.skills}
+                title={group.title}
+              />
+            ))}
           </div>
         </section>
-      </div>
-    </main>
+
+        <section aria-labelledby="contact-cta-heading" className="home-section">
+          <div className="contact-cta">
+            <div>
+              <p className="section-kicker">Have something in mind?</p>
+              <h2 className="section-title" id="contact-cta-heading">
+                Let&apos;s make it <em>useful.</em>
+              </h2>
+            </div>
+            <Link className="button button-primary" href="/contact">
+              Start a conversation
+              <ArrowRight aria-hidden="true" size={15} />
+            </Link>
+          </div>
+        </section>
+      </main>
+    </SiteShell>
   );
 }
