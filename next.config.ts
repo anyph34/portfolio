@@ -1,9 +1,20 @@
 import type { NextConfig } from "next";
 
+const isGitHubPagesBuild = process.env.GITHUB_PAGES === "true";
+
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  ...(isGitHubPagesBuild
+    ? {
+        output: "export" as const,
+        trailingSlash: true,
+        basePath: "/new-respiratory",
+        cacheComponents: false,
+        partialPrefetching: false,
+      }
+    : {
+        cacheComponents: true,
+        partialPrefetching: true,
+      }),
   turbopack: {
     rules: {
       "*.css": {
