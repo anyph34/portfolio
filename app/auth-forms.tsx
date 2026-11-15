@@ -51,16 +51,16 @@ export function LoginForm({ title = "Welcome back", description = "Sign in to yo
   };
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+    <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-8 text-[var(--text)]">
       <div className="mb-6">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">BiasharaDesk</p>
-        <h1 className="mt-3 text-2xl font-semibold text-slate-900">{title}</h1>
-        <p className="mt-2 text-sm text-slate-600">{description}</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">BiasharaDesk</p>
+        <h1 className="mt-3 text-2xl font-semibold text-[var(--text)]">{title}</h1>
+        <p className="mt-2 text-sm text-[var(--muted)]">{description}</p>
       </div>
 
       <form className="space-y-5" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="email" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="email" className="mb-1 block text-sm font-medium text-[var(--muted)]">
             Email address
           </label>
           <input
@@ -68,14 +68,14 @@ export function LoginForm({ title = "Welcome back", description = "Sign in to yo
             type="email"
             value={form.email}
             onChange={(event) => handleChange("email", event.target.value)}
-            className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-slate-900 outline-none transition focus:border-emerald-500 focus:bg-white"
+            className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2.5 text-[var(--text)] outline-none transition focus:border-[var(--text)] focus:bg-[var(--surface)]"
             placeholder="owner@biasharadesk.com"
           />
-          {errors.email ? <p className="mt-1 text-xs text-red-600">{errors.email}</p> : null}
+          {errors.email ? <p className="mt-1 text-xs text-[var(--muted)]">{errors.email}</p> : null}
         </div>
 
         <div>
-          <label htmlFor="password" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="password" className="mb-1 block text-sm font-medium text-[var(--muted)]">
             Password
           </label>
           <input
@@ -83,27 +83,23 @@ export function LoginForm({ title = "Welcome back", description = "Sign in to yo
             type="password"
             value={form.password}
             onChange={(event) => handleChange("password", event.target.value)}
-            className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-slate-900 outline-none transition focus:border-emerald-500 focus:bg-white"
+            className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2.5 text-[var(--text)] outline-none transition focus:border-[var(--text)] focus:bg-[var(--surface)]"
             placeholder="••••••••"
           />
-          {errors.password ? <p className="mt-1 text-xs text-red-600">{errors.password}</p> : null}
+          {errors.password ? <p className="mt-1 text-xs text-[var(--muted)]">{errors.password}</p> : null}
         </div>
 
         <button
           type="submit"
           disabled={status === "loading"}
-          className="w-full rounded-lg bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-60"
+          className="w-full rounded-lg bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-[var(--background)] transition hover:bg-[var(--text)] disabled:cursor-not-allowed disabled:opacity-60"
         >
           {status === "loading" ? "Signing in..." : "Sign in"}
         </button>
 
         {message ? (
           <p
-            className={`rounded-md border px-3 py-2 text-sm ${
-              status === "error"
-                ? "border-red-100 bg-red-50 text-red-700"
-                : "border-emerald-100 bg-emerald-50 text-emerald-700"
-            }`}
+            className="rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm text-[var(--muted)]"
           >
             {message}
           </p>
@@ -164,16 +160,16 @@ export function RegisterForm({ title = "Create your business account", descripti
   };
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+    <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-8 text-[var(--text)]">
       <div className="mb-6">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">BiasharaDesk</p>
-        <h1 className="mt-3 text-2xl font-semibold text-slate-900">{title}</h1>
-        <p className="mt-2 text-sm text-slate-600">{description}</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">BiasharaDesk</p>
+        <h1 className="mt-3 text-2xl font-semibold text-[var(--text)]">{title}</h1>
+        <p className="mt-2 text-sm text-[var(--muted)]">{description}</p>
       </div>
 
       <form className="space-y-5" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="fullName" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="fullName" className="mb-1 block text-sm font-medium text-[var(--muted)]">
             Full name
           </label>
           <input
@@ -181,14 +177,14 @@ export function RegisterForm({ title = "Create your business account", descripti
             type="text"
             value={form.fullName}
             onChange={(event) => handleChange("fullName", event.target.value)}
-            className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-slate-900 outline-none transition focus:border-emerald-500 focus:bg-white"
+            className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2.5 text-[var(--text)] outline-none transition focus:border-[var(--text)] focus:bg-[var(--surface)]"
             placeholder="Mary Wanjiku"
           />
-          {errors.fullName ? <p className="mt-1 text-xs text-red-600">{errors.fullName}</p> : null}
+          {errors.fullName ? <p className="mt-1 text-xs text-[var(--muted)]">{errors.fullName}</p> : null}
         </div>
 
         <div>
-          <label htmlFor="businessName" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="businessName" className="mb-1 block text-sm font-medium text-[var(--muted)]">
             Business name
           </label>
           <input
@@ -196,14 +192,14 @@ export function RegisterForm({ title = "Create your business account", descripti
             type="text"
             value={form.businessName}
             onChange={(event) => handleChange("businessName", event.target.value)}
-            className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-slate-900 outline-none transition focus:border-emerald-500 focus:bg-white"
+            className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2.5 text-[var(--text)] outline-none transition focus:border-[var(--text)] focus:bg-[var(--surface)]"
             placeholder="Nairobi Retail Hub"
           />
-          {errors.businessName ? <p className="mt-1 text-xs text-red-600">{errors.businessName}</p> : null}
+          {errors.businessName ? <p className="mt-1 text-xs text-[var(--muted)]">{errors.businessName}</p> : null}
         </div>
 
         <div>
-          <label htmlFor="register-email" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="register-email" className="mb-1 block text-sm font-medium text-[var(--muted)]">
             Email address
           </label>
           <input
@@ -211,14 +207,14 @@ export function RegisterForm({ title = "Create your business account", descripti
             type="email"
             value={form.email}
             onChange={(event) => handleChange("email", event.target.value)}
-            className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-slate-900 outline-none transition focus:border-emerald-500 focus:bg-white"
+            className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2.5 text-[var(--text)] outline-none transition focus:border-[var(--text)] focus:bg-[var(--surface)]"
             placeholder="owner@business.com"
           />
-          {errors.email ? <p className="mt-1 text-xs text-red-600">{errors.email}</p> : null}
+          {errors.email ? <p className="mt-1 text-xs text-[var(--muted)]">{errors.email}</p> : null}
         </div>
 
         <div>
-          <label htmlFor="register-password" className="mb-1 block text-sm font-medium text-slate-700">
+          <label htmlFor="register-password" className="mb-1 block text-sm font-medium text-[var(--muted)]">
             Password
           </label>
           <input
@@ -226,27 +222,23 @@ export function RegisterForm({ title = "Create your business account", descripti
             type="password"
             value={form.password}
             onChange={(event) => handleChange("password", event.target.value)}
-            className="w-full rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-slate-900 outline-none transition focus:border-emerald-500 focus:bg-white"
+            className="w-full rounded-lg border border-[var(--border)] bg-[var(--background)] px-3 py-2.5 text-[var(--text)] outline-none transition focus:border-[var(--text)] focus:bg-[var(--surface)]"
             placeholder="Create a secure password"
           />
-          {errors.password ? <p className="mt-1 text-xs text-red-600">{errors.password}</p> : null}
+          {errors.password ? <p className="mt-1 text-xs text-[var(--muted)]">{errors.password}</p> : null}
         </div>
 
         <button
           type="submit"
           disabled={status === "loading"}
-          className="w-full rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+          className="w-full rounded-lg bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-[var(--background)] transition hover:bg-[var(--text)] disabled:cursor-not-allowed disabled:opacity-60"
         >
           {status === "loading" ? "Creating account..." : "Create account"}
         </button>
 
         {message ? (
           <p
-            className={`rounded-md border px-3 py-2 text-sm ${
-              status === "error"
-                ? "border-red-100 bg-red-50 text-red-700"
-                : "border-emerald-100 bg-emerald-50 text-emerald-700"
-            }`}
+            className="rounded-md border border-[var(--border)] bg-[var(--background)] px-3 py-2 text-sm text-[var(--muted)]"
           >
             {message}
             {status === "success" ? (

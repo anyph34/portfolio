@@ -56,7 +56,10 @@ export default function ContactPage() {
                 </span>
                 <ArrowUpRight aria-hidden="true" size={15} />
               </a>
-              <a className="contact-card" href={`mailto:${contactDetails.email}`}>
+              <a
+                className="contact-card"
+                href={`mailto:${contactDetails.email}?subject=Portfolio%20Inquiry`}
+              >
                 <span className="contact-icon"><Mail aria-hidden="true" size={17} /></span>
                 <span>
                   <span className="contact-label">Email</span>

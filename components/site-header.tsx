@@ -34,15 +34,17 @@ export function SiteHeader() {
       </Link>
       <span className="header-note">Software / Systems / IT</span>
       <button
+        aria-hidden={isOpen}
         aria-controls="site-navigation"
         aria-expanded={isOpen}
         aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-        className="menu-toggle"
+        className={`menu-toggle${isOpen ? " is-open" : ""}`}
         onClick={() => setIsOpen((open) => !open)}
+        tabIndex={isOpen ? -1 : 0}
         type="button"
       >
-        {isOpen ? <X aria-hidden="true" size={17} /> : <Menu aria-hidden="true" size={17} />}
-        <span>{isOpen ? "Close" : "Menu"}</span>
+        <Menu aria-hidden="true" size={17} />
+        <span>Menu</span>
       </button>
       <button
         aria-label="Close navigation menu"
@@ -68,6 +70,7 @@ export function SiteHeader() {
             type="button"
           >
             <X aria-hidden="true" size={18} />
+            <span>Close</span>
           </button>
         </div>
         <div className="drawer-links">

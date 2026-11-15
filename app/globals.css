@@ -4,17 +4,17 @@
   color-scheme: dark;
   --background: #171717;
   --surface: #262626;
-  --border: #363632;
+  --border: #333333;
   --text: #f2f2ee;
-  --muted: #a3a39e;
+  --muted: #9e9e99;
   --accent: #d4a338;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--text);
-  --font-sans: var(--font-ui), Arial, sans-serif;
-  --font-serif: var(--font-display), Georgia, serif;
+  --font-sans: var(--font-ui), sans-serif;
+  --font-mono: var(--font-code), monospace;
 }
 
 * {
@@ -33,7 +33,7 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--text);
-  font-family: var(--font-ui), Arial, sans-serif;
+  font-family: var(--font-ui), sans-serif;
   font-size: 15px;
   line-height: 1.65;
 }
@@ -42,7 +42,7 @@ body,
 button,
 input,
 textarea {
-  font-family: var(--font-ui), Arial, sans-serif;
+  font-family: var(--font-ui), sans-serif;
 }
 
 a {
@@ -64,12 +64,12 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--text);
   outline-offset: 4px;
 }
 
 ::selection {
-  background: var(--accent);
+  background: var(--text);
   color: var(--background);
 }
 
@@ -95,7 +95,7 @@ textarea:focus-visible {
   align-items: center;
   gap: 12px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
@@ -105,9 +105,9 @@ textarea:focus-visible {
   width: 38px;
   height: 38px;
   place-items: center;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-family: var(--font-display), Georgia, serif;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-ui), sans-serif;
   font-size: 17px;
   font-weight: 500;
   letter-spacing: -0.08em;
@@ -123,7 +123,7 @@ textarea:focus-visible {
 .timeline-date {
   color: var(--muted);
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.16em;
   line-height: 1.5;
   text-transform: uppercase;
@@ -147,10 +147,16 @@ textarea:focus-visible {
   background: transparent;
   color: var(--text);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  transition: border-color 180ms ease, color 180ms ease;
+  transition: border-color 180ms ease, color 180ms ease, opacity 180ms ease, visibility 180ms ease;
+}
+
+.menu-toggle.is-open {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .menu-toggle:hover {
@@ -164,14 +170,14 @@ textarea:focus-visible {
   inset: 0;
   padding: 0;
   border: 0;
-  background: rgb(23 23 23 / 78%);
+  background: var(--background);
   opacity: 0;
   pointer-events: none;
   transition: opacity 240ms ease;
 }
 
 .menu-backdrop.is-open {
-  opacity: 1;
+  opacity: 0.78;
   pointer-events: auto;
 }
 
@@ -205,14 +211,24 @@ textarea:focus-visible {
 }
 
 .drawer-close {
-  display: grid;
-  width: 42px;
+  display: flex;
+  min-width: 88px;
   height: 42px;
-  place-items: center;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 12px;
   border: 1px solid var(--border);
   background: transparent;
   color: var(--text);
   transition: border-color 180ms ease, color 180ms ease;
+}
+
+.drawer-close span {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .drawer-close:hover {
@@ -222,7 +238,7 @@ textarea:focus-visible {
 
 .menu-overline {
   margin: 0;
-  color: var(--accent);
+  color: var(--muted);
 }
 
 .drawer-links {
@@ -239,7 +255,7 @@ textarea:focus-visible {
   padding: 12px 0;
   border-bottom: 1px solid var(--border);
   color: var(--muted);
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-ui), sans-serif;
   font-size: clamp(32px, 7vw, 46px);
   line-height: 1.15;
   transition: color 180ms ease, padding-left 180ms ease;
@@ -247,7 +263,8 @@ textarea:focus-visible {
 
 .drawer-link span {
   color: var(--muted);
-  font-family: var(--font-ui), Arial, sans-serif;
+  font-family: var(--font-ui), sans-serif;
+  font-weight: 500;
   font-size: 10px;
   letter-spacing: 0.1em;
 }
@@ -316,7 +333,7 @@ textarea:focus-visible {
 .eyebrow::before {
   width: 20px;
   height: 1px;
-  background: var(--accent);
+  background: var(--border);
   content: "";
 }
 
@@ -329,7 +346,7 @@ textarea:focus-visible {
 }
 
 .hero-location svg {
-  color: var(--accent);
+  color: var(--muted);
 }
 
 .hero-slider {
@@ -363,7 +380,7 @@ textarea:focus-visible {
   right: 9%;
   width: 260px;
   height: 260px;
-  border: 1px solid rgb(212 163 56 / 22%);
+  border: 1px solid var(--border);
   border-radius: 50%;
   transform: translateY(-50%);
 }
@@ -400,13 +417,13 @@ textarea:focus-visible {
 
 .hero-copy .section-kicker {
   margin-bottom: 20px;
-  color: var(--accent);
+  color: var(--muted);
 }
 
 .hero-title {
   max-width: 780px;
   margin: 0;
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-ui), sans-serif;
   font-size: clamp(52px, 8vw, 104px);
   font-weight: 400;
   letter-spacing: -0.055em;
@@ -414,7 +431,7 @@ textarea:focus-visible {
 }
 
 .hero-title em {
-  color: var(--accent);
+  color: var(--text);
   font-weight: 400;
 }
 
@@ -452,7 +469,7 @@ textarea:focus-visible {
   padding: 0 17px;
   border: 1px solid transparent;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
@@ -493,8 +510,8 @@ textarea:focus-visible {
   position: absolute;
   top: 38px;
   right: 34px;
-  color: var(--accent);
-  font-family: var(--font-display), Georgia, serif;
+  color: var(--muted);
+  font-family: var(--font-code), monospace;
   font-size: 19px;
 }
 
@@ -502,13 +519,13 @@ textarea:focus-visible {
   width: 42px;
   height: 1px;
   margin-bottom: 16px;
-  background: var(--accent);
+  background: var(--border);
 }
 
 .hero-aside-title {
   max-width: 170px;
   margin: 0;
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-ui), sans-serif;
   font-size: 25px;
   font-weight: 400;
   line-height: 1.12;
@@ -580,7 +597,7 @@ textarea:focus-visible {
 .section-title,
 .page-title {
   margin: 10px 0 0;
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-ui), sans-serif;
   font-size: clamp(36px, 5vw, 60px);
   font-weight: 400;
   letter-spacing: -0.045em;
@@ -589,7 +606,7 @@ textarea:focus-visible {
 
 .section-title em,
 .page-title em {
-  color: var(--accent);
+  color: var(--text);
   font-weight: 400;
 }
 
@@ -616,12 +633,13 @@ textarea:focus-visible {
 }
 
 .project-number {
-  color: var(--accent);
+  color: var(--muted);
+  font-family: var(--font-code), monospace;
 }
 
 .project-title {
   margin: 17px 0 0;
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-ui), sans-serif;
   font-size: clamp(34px, 4vw, 52px);
   font-weight: 400;
   letter-spacing: -0.045em;
@@ -648,6 +666,7 @@ textarea:focus-visible {
   padding: 6px 10px;
   border: 1px solid var(--border);
   color: var(--muted);
+  font-family: var(--font-code), monospace;
   font-size: 10px;
   letter-spacing: 0.05em;
 }
@@ -666,7 +685,6 @@ textarea:focus-visible {
   width: min(100%, 430px);
   border: 1px solid var(--border);
   background: var(--background);
-  box-shadow: 14px 14px 0 rgb(212 163 56 / 10%);
 }
 
 .mock-topbar {
@@ -684,7 +702,7 @@ textarea:focus-visible {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--muted);
   opacity: 0.75;
 }
 
@@ -707,7 +725,7 @@ textarea:focus-visible {
 
 .mock-heading {
   margin: 4px 0 15px;
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-ui), sans-serif;
   font-size: 21px;
 }
 
@@ -733,7 +751,7 @@ textarea:focus-visible {
   display: block;
   margin-top: 4px;
   color: var(--text);
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-ui), sans-serif;
   font-size: 15px;
   font-weight: 500;
 }
@@ -751,7 +769,7 @@ textarea:focus-visible {
 .mock-chart span {
   flex: 1;
   min-height: 12px;
-  background: var(--accent);
+  background: var(--muted);
   opacity: 0.68;
 }
 
@@ -780,13 +798,13 @@ textarea:focus-visible {
 }
 
 .skill-category svg {
-  color: var(--accent);
+  color: var(--muted);
 }
 
 .skill-category h3 {
   margin: 16px 0 8px;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .skill-category p {
@@ -825,7 +843,7 @@ textarea:focus-visible {
 .footer-brand {
   color: var(--text);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -865,7 +883,7 @@ textarea:focus-visible {
 
 .about-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  grid-template-columns: minmax(0, 0.7fr) minmax(210px, 0.65fr) minmax(0, 1.3fr);
   gap: clamp(28px, 6vw, 80px);
   padding: clamp(54px, 8vw, 96px) 0;
   border-bottom: 1px solid var(--border);
@@ -881,12 +899,41 @@ textarea:focus-visible {
   margin: 0 0 18px;
 }
 
+.profile-photo {
+  width: min(100%, 280px);
+  aspect-ratio: 4 / 5;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.profile-photo img,
+.profile-photo-fallback {
+  display: grid;
+  width: 100%;
+  height: 100%;
+}
+
+.profile-photo img {
+  object-fit: cover;
+}
+
+.profile-photo-fallback {
+  place-items: center;
+  color: var(--accent);
+  font-size: clamp(48px, 7vw, 72px);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+}
+
 .about-pullquote {
   margin: 26px 0 0;
   padding-left: 20px;
-  border-left: 1px solid var(--accent);
+  border-left: 1px solid var(--border);
   color: var(--text);
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-ui), sans-serif;
   font-size: 23px;
   line-height: 1.35;
 }
@@ -908,7 +955,7 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--accent);
+  color: var(--muted);
 }
 
 .skill-panel-heading h3 {
@@ -950,7 +997,7 @@ textarea:focus-visible {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--muted);
   content: "";
 }
 
@@ -960,7 +1007,7 @@ textarea:focus-visible {
 
 .timeline-title {
   margin: 0;
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-ui), sans-serif;
   font-size: 23px;
   font-weight: 400;
 }
@@ -992,7 +1039,7 @@ textarea:focus-visible {
 
 .case-study-title {
   margin: 12px 0 0;
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-ui), sans-serif;
   font-size: clamp(39px, 6vw, 66px);
   font-weight: 400;
   letter-spacing: -0.045em;
@@ -1039,7 +1086,7 @@ textarea:focus-visible {
 
 .case-detail h3 {
   margin: 0;
-  color: var(--accent);
+  color: var(--muted);
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1069,12 +1116,12 @@ textarea:focus-visible {
 }
 
 .placeholder-card > svg {
-  color: var(--accent);
+  color: var(--muted);
 }
 
 .placeholder-card h3 {
   margin: 24px 0 0;
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-ui), sans-serif;
   font-size: 29px;
   font-weight: 400;
 }
@@ -1123,7 +1170,7 @@ textarea:focus-visible {
   height: 42px;
   place-items: center;
   border: 1px solid var(--border);
-  color: var(--accent);
+  color: var(--muted);
 }
 
 .contact-label {
@@ -1164,7 +1211,7 @@ textarea:focus-visible {
 
 .form-heading h2 {
   margin: 0;
-  font-family: var(--font-display), Georgia, serif;
+  font-family: var(--font-ui), sans-serif;
   font-size: 31px;
   font-weight: 400;
 }
@@ -1187,7 +1234,7 @@ textarea:focus-visible {
 .form-field label {
   color: var(--muted);
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
 }
@@ -1223,11 +1270,6 @@ textarea:focus-visible {
   justify-self: start;
 }
 
-.form-submit:disabled {
-  cursor: wait;
-  opacity: 0.65;
-}
-
 .form-status {
   min-height: 22px;
   margin: 0;
@@ -1236,7 +1278,7 @@ textarea:focus-visible {
 }
 
 .form-status.is-success {
-  color: var(--accent);
+  color: var(--muted);
 }
 
 .form-status.is-error {
@@ -1252,7 +1294,7 @@ textarea:focus-visible {
 }
 
 .copy-toast {
-  color: var(--accent);
+  color: var(--text);
   font-size: 12px;
 }
 

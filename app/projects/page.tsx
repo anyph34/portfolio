@@ -80,7 +80,7 @@ export default function ProjectsPage() {
                 <article className="case-detail" key={title}>
                   <h3>{title}</h3>
                   <p>{description}</p>
-                  <Icon aria-hidden="true" color="var(--accent)" size={16} strokeWidth={1.5} />
+                  <Icon aria-hidden="true" size={16} strokeWidth={1.5} />
                 </article>
               ))}
             </div>

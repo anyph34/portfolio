@@ -94,7 +94,7 @@ export default function DashboardPage() {
 
   if (status === "loading") {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-slate-100 p-6 text-slate-600">
+      <main className="flex min-h-screen items-center justify-center bg-[var(--background)] p-6 text-[var(--muted)]">
         Loading your business...
       </main>
     );
@@ -102,11 +102,11 @@ export default function DashboardPage() {
 
   if (status === "error") {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-slate-100 p-6 text-slate-900">
-        <section className="max-w-lg rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+      <main className="flex min-h-screen items-center justify-center bg-[var(--background)] p-6 text-[var(--text)]">
+        <section className="max-w-lg rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-8">
           <h1 className="text-xl font-semibold">Could not load your dashboard</h1>
-          <p className="mt-3 text-sm text-red-700">{message}</p>
-          <Link className="mt-6 inline-block text-sm font-medium text-emerald-700 underline" href="/login">
+          <p className="mt-3 text-sm text-[var(--muted)]">{message}</p>
+          <Link className="mt-6 inline-block text-sm font-medium text-[var(--text)] underline hover:text-[var(--accent)]" href="/login">
             Return to sign in
           </Link>
         </section>
@@ -122,29 +122,29 @@ export default function DashboardPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-slate-100 p-6 text-slate-900">
+    <main className="min-h-screen bg-[var(--background)] p-6 text-[var(--text)]">
       <div className="mx-auto max-w-7xl">
         <header className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-600">Dashboard</p>
-            <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-900">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">Dashboard</p>
+            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-[var(--text)]">
               {profile?.businessName ?? "Business overview"}
             </h1>
-            <p className="mt-2 text-sm text-slate-600">{profile?.email}</p>
+            <p className="mt-2 text-sm text-[var(--muted)]">{profile?.email}</p>
           </div>
           <div className="flex flex-col gap-3 sm:items-end">
-            <div className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600">
+            <div className="rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm text-[var(--muted)]">
               {profile?.businessName ? "Database connected" : "No business found for this account"}
             </div>
             <button
               type="button"
               onClick={handleSignOut}
               disabled={signingOut}
-              className="text-sm font-medium text-slate-700 underline disabled:opacity-60"
+              className="text-sm font-medium text-[var(--muted)] underline transition hover:text-[var(--accent)] disabled:opacity-60"
             >
               {signingOut ? "Signing out..." : "Sign out"}
             </button>
-            {message ? <p className="text-sm text-red-700">{message}</p> : null}
+            {message ? <p className="text-sm text-[var(--muted)]">{message}</p> : null}
           </div>
         </header>
 
@@ -153,10 +153,10 @@ export default function DashboardPage() {
             <Card key={stat.label}>
               <CardHeader className="pb-2">
                 <CardDescription>{stat.label}</CardDescription>
-                <CardTitle className="text-3xl font-bold text-slate-900">{stat.value}</CardTitle>
+                <CardTitle className="text-3xl font-semibold text-[var(--text)]">{stat.value}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-slate-500">{stat.detail}</p>
+                <p className="text-sm text-[var(--muted)]">{stat.detail}</p>
               </CardContent>
             </Card>
           ))}
@@ -169,7 +169,7 @@ export default function DashboardPage() {
               <CardDescription>This chart will be populated from the business sales table.</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="flex h-64 items-center justify-center rounded-2xl border border-dashed border-slate-200 bg-slate-50 text-sm text-slate-500">
+              <div className="flex h-64 items-center justify-center rounded-2xl border border-dashed border-[var(--border)] bg-[var(--background)] text-sm text-[var(--muted)]">
                 Sales analytics will render here once sales tracking is enabled.
               </div>
             </CardContent>
@@ -181,7 +181,7 @@ export default function DashboardPage() {
               <CardDescription>Business operations will appear here.</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="rounded-xl bg-slate-50 px-3 py-2 text-sm text-slate-700">
+              <p className="rounded-xl bg-[var(--background)] px-3 py-2 text-sm text-[var(--muted)]">
                 No activity has been recorded yet.
               </p>
             </CardContent>

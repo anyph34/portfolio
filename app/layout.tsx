@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { DM_Sans, Newsreader } from "next/font/google";
+import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-ui",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
-const newsreader = Newsreader({
-  variable: "--font-display",
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-code",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${newsreader.variable}`}>
+    <html lang="en" className={`${plusJakartaSans.variable} ${jetBrainsMono.variable}`}>
       <body>{children}</body>
     </html>
   );

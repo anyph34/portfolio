@@ -15,9 +15,13 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Contact form setup
+## Contact form
 
-The contact form uses Web3Forms. Create a free access key for `anyphbett9@gmail.com`, then set `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` in `.env.local` and as a GitHub Actions repository secret with the same name. Restart or redeploy after setting the key. Without it, the form explains that it is not connected and direct email remains available.
+The contact form submits directly to FormSubmit at `anyphbett9@gmail.com`, so it works on the static GitHub Pages deployment without an API key. FormSubmit may email the recipient a one-time activation request before the first message is delivered.
+
+## Profile photo
+
+Save the portrait image as `public/assets/profile.jpg`. The About page uses it when present and falls back to the initials `AK` when it is missing.
 
 ## Quality checks
 

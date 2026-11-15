@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, GraduationCap } from "lucide-react";
 
 import { SiteShell } from "@/components/site-shell";
+import { ProfilePhoto } from "@/components/profile-photo";
 import { SkillCard } from "@/components/skill-card";
 import { skillGroups } from "@/lib/portfolio";
 
@@ -38,6 +39,7 @@ export default function AboutPage() {
               <em>Well made always.</em>
             </h2>
           </div>
+          <ProfilePhoto />
           <div className="about-copy">
             <p>
               I enjoy understanding the people and processes behind a software problem before
@@ -87,7 +89,7 @@ export default function AboutPage() {
                 Education &amp; <em>training.</em>
               </h2>
             </div>
-            <GraduationCap aria-hidden="true" color="var(--accent)" size={25} strokeWidth={1.4} />
+            <GraduationCap aria-hidden="true" size={25} strokeWidth={1.4} />
           </div>
           <ol className="timeline">
             <li className="timeline-item">
