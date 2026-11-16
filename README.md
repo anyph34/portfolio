@@ -4,7 +4,7 @@ A responsive, editorial-style portfolio built with Next.js 16, React, TypeScript
 
 ## GitHub Pages
 
-The GitHub Actions workflow builds and deploys a static export. In the repository settings, open **Settings -> Pages** and set the build and deployment source to **GitHub Actions**. The project site URL is `https://anyph34.github.io/new-respiratory/`.
+The GitHub Actions workflow builds and deploys a static export. In the repository settings, open **Settings -> Pages** and set the build and deployment source to **GitHub Actions**. The project site URL is `https://anyph34.github.io/portfolio/`.
 
 ## Run locally
 

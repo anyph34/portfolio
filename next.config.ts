@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     ? {
         output: "export" as const,
         trailingSlash: true,
-        basePath: "/new-respiratory",
+        basePath: "/portfolio",
         cacheComponents: false,
         partialPrefetching: false,
       }

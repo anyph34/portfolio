@@ -16,7 +16,7 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://anyph34.github.io/new-respiratory/"),
+  metadataBase: new URL("https://anyph34.github.io/portfolio/"),
   title: "Anyph Kipngetich | Developer Portfolio",
   description:
     "Software developer and IT specialist building practical business software, clean database architectures, and responsive web applications.",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Anyph Kipngetich | Developer Portfolio",
     description:
       "Full-stack software developer and IT specialist building business systems, web applications, and reliable database-backed products.",
-    url: "https://anyph34.github.io/new-respiratory/",
+    url: "https://anyph34.github.io/portfolio/",
     siteName: "Anyph Kipngetich Portfolio",
     type: "website",
   },
