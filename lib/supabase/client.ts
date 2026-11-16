@@ -1,4 +1,5 @@
 import { createBrowserClient } from "@supabase/ssr";
+import type { FindMyHomeDatabase } from "@/lib/supabase/types";
 
 export function hasSupabaseConfig() {
   return Boolean(
@@ -7,38 +8,11 @@ export function hasSupabaseConfig() {
 }
 
 export function createClient() {
-  if (!hasSupabaseConfig()) {
-    throw new Error(
-      "Supabase environment variables are missing. Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.",
-    );
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (!url || !anonKey) {
+    return null;
   }
 
-  return createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-  );
-}
-
-export async function signInWithEmail(email: string, password: string) {
-  const supabase = createClient();
-  return supabase.auth.signInWithPassword({ email, password });
-}
-
-export async function signUpWithEmail(
-  email: string,
-  password: string,
-  fullName: string,
-  businessName: string,
-) {
-  const supabase = createClient();
-  return supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      data: {
-        full_name: fullName,
-        business_name: businessName,
-      },
-    },
-  });
+  return createBrowserClient<FindMyHomeDatabase>(url, anonKey);
 }

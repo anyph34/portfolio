@@ -1,14 +1,44 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, MapPin } from "lucide-react";
 
-import { BiasharaMock } from "@/components/biashara-mock";
+import { FindMyHomeLanding } from "@/components/findmyhome/landing";
 import { HeroSlider } from "@/components/hero-slider";
+import { PropertyArtwork } from "@/components/findmyhome/artwork";
 import { SiteShell } from "@/components/site-shell";
 import { SkillCard } from "@/components/skill-card";
 import { StockPilotPreview } from "@/components/stockpilot-preview";
 import { skillGroups } from "@/lib/portfolio";
+import { DEMO_PROPERTIES } from "@/lib/findmyhome/properties";
 
-export default function HomePage() {
+const isFindMyHomeDeployment = process.env.VERCEL === "1" && process.env.GITHUB_PAGES !== "true";
+
+export const metadata: Metadata = isFindMyHomeDeployment
+  ? {
+      metadataBase: new URL("https://biasharadesk.vercel.app"),
+      title: "FindMyHome | Rental homes in Kenya",
+      description: "Thoughtfully presented rental homes, clear details, and a simpler way to find your next neighbourhood.",
+      alternates: { canonical: "/" },
+      openGraph: {
+        title: "FindMyHome | Rental homes in Kenya",
+        description: "Explore rental homes across Nairobi and find a place to feel at home.",
+        url: "https://biasharadesk.vercel.app/",
+        siteName: "FindMyHome",
+        type: "website",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "FindMyHome | Rental homes in Kenya",
+        description: "Explore rental homes across Nairobi and find a place to feel at home.",
+      },
+      icons: { icon: "/findmyhome.svg" },
+    }
+  : {
+      title: "Anyph Kipngetich | Developer Portfolio",
+      description: "Software developer and IT specialist building practical web applications and reliable data-backed products.",
+    };
+
+function PortfolioHome() {
   return (
     <SiteShell>
       <main className="main-content home-page">
@@ -38,27 +68,27 @@ export default function HomePage() {
           <article className="featured-project">
             <div className="featured-copy">
               <span className="project-number">01 / FLAGSHIP PROJECT</span>
-              <h3 className="project-title">BiasharaDesk</h3>
+              <h3 className="project-title">FindMyHome</h3>
               <p className="project-summary">
-                A multi-tenant business operations platform shaped around the practical needs of
-                East African businesses, with KES currency and Nairobi time defaults.
+                A Kenya-first rental marketplace for discovering homes, requesting viewings, and
+                helping landlords keep property details and availability current.
               </p>
               <ul aria-label="Project technologies" className="tag-list">
                 <li>Next.js</li>
-                <li>PostgreSQL</li>
+                <li>TypeScript</li>
                 <li>Supabase</li>
-                <li>Multi-tenant</li>
+                <li>Property marketplace</li>
               </ul>
               <div className="button-row">
-                <Link
+                <a
                   className="button button-primary"
-                  href="https://biasharadesk.vercel.app/login"
+                  href="https://biasharadesk.vercel.app"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  Open BiasharaDesk
+                  Explore FindMyHome
                   <ArrowUpRight aria-hidden="true" size={15} />
-                </Link>
+                </a>
                 <Link className="button button-outline" href="/projects#case-studies">
                   Read the case study
                   <ArrowRight aria-hidden="true" size={15} />
@@ -66,7 +96,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="product-visual">
-              <BiasharaMock />
+              <PropertyArtwork large listing={DEMO_PROPERTIES[0]} />
             </div>
           </article>
           <article className="sp-portfolio-showcase">
@@ -135,4 +165,8 @@ export default function HomePage() {
       </main>
     </SiteShell>
   );
+}
+
+export default function HomePage() {
+  return isFindMyHomeDeployment ? <FindMyHomeLanding /> : <PortfolioHome />;
 }

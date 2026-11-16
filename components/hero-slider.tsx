@@ -41,18 +41,18 @@ const slides = [
   },
   {
     number: "03",
-    category: "Selected work / 01",
+    category: "Selected work / FindMyHome",
     title: (
       <>
         Featured Build:<br />
-        <em>BiasharaDesk</em>
+        <em>FindMyHome</em>
       </>
     ),
-    subtitle: "A multi-tenant operations platform for East African businesses.",
+    subtitle: "A rental marketplace built for finding a place to call home in Kenya.",
     description:
-      "BiasharaDesk brings everyday business operations into one workspace, with Kenyan defaults at its core.",
-    asideTitle: "BiasharaDesk",
-    asideText: "A multi-tenant operations platform for East African businesses.",
+      "Explore thoughtful listings, check availability, and request a viewing with a clear, Kenya-first rental experience.",
+    asideTitle: "FindMyHome",
+    asideText: "Rental homes, clear details, and an easier way to find your next neighbourhood.",
     action: { href: "/projects#case-studies", label: "View the case study" },
   },
 ];

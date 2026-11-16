@@ -1,14 +1,29 @@
-# Anyph Kipngetich - Developer Portfolio
+# FindMyHome and Anyph Kipngetich's portfolio
 
-A responsive, editorial-style portfolio built with Next.js 16, React, TypeScript, and Tailwind CSS. It includes Home, About, Projects, and Contact pages, with StockPilot AI and BiasharaDesk product presentations.
+This repository contains the portfolio site and the FindMyHome rental marketplace. FindMyHome is the homepage on Vercel; the GitHub Pages build keeps the portfolio at `/portfolio/` and also exports a marketplace preview at `/portfolio/findmyhome/`.
 
-## StockPilot AI
+## FindMyHome
 
-The StockPilot AI concept has a dedicated product landing page at `/stockpilot/` and an interactive sample dashboard at `/stockpilot/dashboard/`. Both use a scoped Pool Blue, Dark Cocoa, and Solar Yellow design system; the portfolio Home and Projects pages include matching previews. The dashboard uses sample data only: it is not connected to a live inventory database or AI service.
+The app supports property search by area, type, availability, and rent; property details; viewing requests; and a landlord dashboard for creating listings, uploading photos, and marking homes occupied or available. Occupied homes cannot accept viewing requests.
 
-## GitHub Pages
+Without `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`, the app runs in demo mode. Sample listings and landlord changes are stored only in the current browser and are not shared or durable across devices. The app labels this mode clearly. Demo photos are limited to 650 KB each to fit browser storage.
 
-The GitHub Actions workflow builds and deploys a static export. In the repository settings, open **Settings -> Pages** and set the build and deployment source to **GitHub Actions**. The project site URL is `https://anyph34.github.io/portfolio/`.
+To enable shared listings and landlord accounts:
+
+1. Configure `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` in the Vercel project's environment variables. Use only the public anon/publishable key in browser code; never use a service-role key.
+2. Apply `supabase/migrations/003_findmyhome_marketplace.sql` to the Supabase project.
+3. Configure Supabase Auth's site URL and redirect allowlist for the deployed Vercel domain.
+4. Redeploy after setting environment variables.
+
+The marketplace migrations use row-level security for landlord-owned listings and private viewing-request details. Migrations `001` and `002` are retained as historical database migrations so an existing Supabase migration history is not rewritten; the FindMyHome application no longer uses their business-management tables.
+
+The existing Vercel project/domain is `https://biasharadesk.vercel.app`. GitHub pushes to the connected `main` branch should trigger its deployment. The project name and URL are controlled in Vercel and are not changed by this repository.
+
+## Portfolio and StockPilot AI
+
+The responsive portfolio includes Home, About, Projects, and Contact pages. The FindMyHome project case study links to the marketplace deployment. StockPilot AI remains a separate portfolio project with its dedicated `/stockpilot/` landing page and `/stockpilot/dashboard/` sample dashboard; its data is a demo and is not connected to a live inventory service.
+
+The GitHub Pages site is `https://anyph34.github.io/portfolio/`. Its workflow builds a static export and does not change the Vercel app's runtime behavior.
 
 ## Run locally
 
@@ -17,27 +32,27 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000). The root page is the portfolio locally; open `/findmyhome/` for the marketplace.
 
-## Contact form
+## Portfolio details
 
-The contact form submits directly to FormSubmit at `anyphbett9@gmail.com`, so it works on the static GitHub Pages deployment without an API key. FormSubmit may email the recipient a one-time activation request before the first message is delivered.
-
-## BiasharaDesk interface
-
-BiasharaDesk is deployed as a separate Vercel project at [biasharadesk.vercel.app](https://biasharadesk.vercel.app/login). The Home and Projects buttons open its sign-in page in a new tab. To enable sign-in and registration, add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` in the Vercel project's environment variables, then redeploy. Set the Supabase Auth site URL to `https://biasharadesk.vercel.app` and add the Vercel app URL to its redirect allowlist. For the GitHub Pages build, add the same values as repository Actions secrets and allow `https://anyph34.github.io/portfolio/` in Supabase. Do not paste credentials into source files or commit them.
-
-## Profile avatar
-
-The About page uses `public/assets/profile.jpg`, the provided portrait image.
-
-## CV
-
-The CV is served from `public/assets/Anyph_Kipngetich_CV.pdf` and includes a clickable LinkedIn profile link.
+- The contact form submits to FormSubmit at `anyphbett9@gmail.com`.
+- The About page uses `public/assets/profile.jpg`.
+- The CV is served from `public/assets/Anyph_Kipngetich_CV.pdf`.
+- `.env.example` contains placeholders only. Keep real credentials in ignored local environment files or hosting settings.
 
 ## Quality checks
 
 ```bash
 npm run lint
+npx tsc --noEmit
 npm run build
+```
+
+The GitHub Pages export can be checked with:
+
+```powershell
+$env:GITHUB_PAGES = "true"
+npm run build
+Remove-Item Env:GITHUB_PAGES
 ```

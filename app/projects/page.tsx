@@ -1,39 +1,40 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Boxes, BrainCircuit, Database, Layers3, ShieldCheck } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Boxes, BrainCircuit, House, MapPin, ShieldCheck } from "lucide-react";
 
-import { BiasharaMock } from "@/components/biashara-mock";
+import { PropertyArtwork } from "@/components/findmyhome/artwork";
+import "@/components/findmyhome/findmyhome.css";
 import { StockPilotPreview } from "@/components/stockpilot-preview";
 import { SiteShell } from "@/components/site-shell";
+import { DEMO_PROPERTIES } from "@/lib/findmyhome/properties";
 
 export const metadata: Metadata = {
   title: "Projects | Anyph Kipngetich",
-  description: "Selected software projects by Anyph Kipngetich, including StockPilot AI and BiasharaDesk.",
+  description: "Selected software projects by Anyph Kipngetich, including FindMyHome and StockPilot AI.",
 };
 
 const projectHighlights = [
   {
-    title: "Tenant-aware data model",
+    title: "Find homes by fit",
     description:
-      "A PostgreSQL/Supabase foundation for profiles, businesses, business_members, subscriptions, settings, and audit history.",
-    icon: Database,
+      "Filter by neighbourhood, home type, monthly rent, and availability across Kenya-first sample listings.",
+    icon: MapPin,
   },
   {
-    title: "Roles and membership",
+    title: "Honest availability",
     description:
-      "Business owner and employee roles represented in a membership model, ready for tenant-specific workflows.",
+      "Available and occupied homes are clearly distinguished, and occupied listings cannot accept viewing requests.",
     icon: ShieldCheck,
   },
   {
-    title: "Reusable interface pieces",
+    title: "A useful landlord workflow",
     description:
-      "Modular UI primitives and form validation utilities keep the product interface consistent as it grows.",
-    icon: Layers3,
+      "Create property listings, upload photos, and keep availability up to date from a focused dashboard.",
+    icon: House,
   },
   {
-    title: "Regional defaults",
-    description:
-      "KES currency and the Africa/Nairobi timezone are first-class defaults for the intended market.",
+    title: "Designed for local renting",
+    description: "KES pricing, Nairobi neighbourhoods, and practical home details shape the renter experience.",
     icon: Boxes,
   },
 ];
@@ -55,22 +56,21 @@ export default function ProjectsPage() {
           </p>
         </section>
 
-        <section aria-labelledby="biasharadesk-title" className="case-study" id="case-studies">
+        <section aria-labelledby="findmyhome-title" className="case-study" id="case-studies">
           <div className="case-study-header">
             <div>
               <span className="project-number">01 / FLAGSHIP PROJECT</span>
-              <h2 className="case-study-title" id="biasharadesk-title">BiasharaDesk</h2>
+              <h2 className="case-study-title" id="findmyhome-title">FindMyHome</h2>
             </div>
             <p className="case-study-summary">
-              A multi-tenant business operations and management SaaS concept tailored for East
-              African businesses. The product direction brings everyday business work into one
-              focused workspace, with KES currency and Africa/Nairobi timezone defaults.
+              A Kenya-first rental marketplace for discovering available homes, reviewing clear
+              property details, and helping landlords manage photos and occupancy.
             </p>
           </div>
 
           <div className="case-study-layout">
             <div className="case-visual">
-              <BiasharaMock />
+              <PropertyArtwork large listing={DEMO_PROPERTIES[0]} />
             </div>
             <div className="case-details">
               {projectHighlights.map(({ title, description, icon: Icon }) => (
@@ -83,33 +83,28 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          <ul aria-label="BiasharaDesk technologies" className="tag-list">
+          <ul aria-label="FindMyHome technologies" className="tag-list">
             <li>Next.js</li>
             <li>React</li>
             <li>TypeScript</li>
-            <li>PostgreSQL</li>
+            <li>Rental marketplace</li>
             <li>Supabase</li>
           </ul>
 
           <div className="button-row">
-            <Link
-              className="button button-primary"
-              href="https://biasharadesk.vercel.app/login"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Open BiasharaDesk
-              <ArrowUpRight aria-hidden="true" size={15} />
-            </Link>
             <a
-              className="button button-outline"
-              href="https://github.com/anyph34/biasharadesk"
+              className="button button-primary"
+              href="https://biasharadesk.vercel.app"
               rel="noopener noreferrer"
               target="_blank"
             >
-              GitHub repository
+              Explore FindMyHome
               <ArrowUpRight aria-hidden="true" size={15} />
             </a>
+            <Link className="button button-outline" href="/findmyhome">
+              Open the demo
+              <ArrowRight aria-hidden="true" size={15} />
+            </Link>
           </div>
         </section>
 
