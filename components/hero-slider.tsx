@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowDownRight, ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowDownRight, ArrowLeft, ArrowRight, FileDown } from "lucide-react";
+
+import { AvailabilityBadge } from "@/components/availability-badge";
 
 const slides = [
   {
@@ -95,10 +97,19 @@ export function HeroSlider() {
         <h1 className="hero-title hero-slide-enter">{slide.title}</h1>
         <p className="hero-subtitle">{slide.subtitle}</p>
         <p className="hero-description">{slide.description}</p>
+        <AvailabilityBadge />
         <div className="button-row">
           <Link className="button button-primary" href={slide.action.href}>
             {slide.action.label}
             <ArrowDownRight aria-hidden="true" size={15} />
+          </Link>
+          <Link
+            className="button button-outline"
+            download="Anyph_Kipngetich_CV.pdf"
+            href="/assets/Anyph_Kipngetich_CV.pdf"
+          >
+            Download CV
+            <FileDown aria-hidden="true" size={15} />
           </Link>
         </div>
         <div aria-label="Slide controls" className="slider-controls">

@@ -12,7 +12,7 @@ export function SiteFooter() {
       <span>Built with care in Kenya.</span>
       <a className="footer-contact" href={`mailto:${contactDetails.email}`}>
         <Mail aria-hidden="true" size={14} />
-        {contactDetails.email}
+        <span className="footer-email">{contactDetails.email}</span>
         <ArrowUpRight aria-hidden="true" size={13} />
       </a>
     </footer>

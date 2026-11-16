@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, GraduationCap } from "lucide-react";
+import { ArrowRight, FileDown, GraduationCap } from "lucide-react";
 
 import { SiteShell } from "@/components/site-shell";
 import { ProfilePhoto } from "@/components/profile-photo";
@@ -124,10 +124,20 @@ export default function AboutPage() {
                 Let&apos;s build something <em>considered.</em>
               </h2>
             </div>
-            <Link className="button button-primary" href="/contact">
-              Get in touch
-              <ArrowRight aria-hidden="true" size={15} />
-            </Link>
+            <div className="button-row about-cta-actions">
+              <Link className="button button-primary" href="/contact">
+                Get in touch
+                <ArrowRight aria-hidden="true" size={15} />
+              </Link>
+              <Link
+                className="button button-outline"
+                download="Anyph_Kipngetich_CV.pdf"
+                href="/assets/Anyph_Kipngetich_CV.pdf"
+              >
+                Download CV
+                <FileDown aria-hidden="true" size={15} />
+              </Link>
+            </div>
           </div>
         </section>
       </main>

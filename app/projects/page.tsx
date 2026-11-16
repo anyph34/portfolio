@@ -54,10 +54,6 @@ export default function ProjectsPage() {
           </p>
         </section>
 
-        <p className="projects-intro">
-          One flagship build in progress, with room for the next ideas to take shape.
-        </p>
-
         <section aria-labelledby="biasharadesk-title" className="case-study" id="biasharadesk">
           <div className="case-study-header">
             <div>
@@ -95,38 +91,16 @@ export default function ProjectsPage() {
           </ul>
 
           <div className="button-row">
-            <span aria-disabled="true" className="button button-outline">
-              Live demo / coming soon
-            </span>
             <a
               className="button button-primary"
-              href="https://github.com/anyph34"
-              rel="noreferrer"
+              href="https://github.com/anyph34/biasharadesk"
+              rel="noopener noreferrer"
               target="_blank"
             >
               GitHub repository
               <ArrowUpRight aria-hidden="true" size={15} />
             </a>
           </div>
-        </section>
-
-        <section aria-label="Upcoming projects" className="project-placeholders">
-          <article className="placeholder-card">
-            <Boxes aria-hidden="true" size={22} strokeWidth={1.4} />
-            <div>
-              <span className="project-number">02 / IN THE WORKSHOP</span>
-              <h3>Web project</h3>
-              <p>A space reserved for the next useful interface and the problem that inspires it.</p>
-            </div>
-          </article>
-          <article className="placeholder-card">
-            <Database aria-hidden="true" size={22} strokeWidth={1.4} />
-            <div>
-              <span className="project-number">03 / IN THE WORKSHOP</span>
-              <h3>Systems project</h3>
-              <p>A place for a future systems build, from careful data foundations to a working tool.</p>
-            </div>
-          </article>
         </section>
 
         <section className="home-section">

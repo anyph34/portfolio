@@ -11,6 +11,7 @@ export const contactDetails = {
   email: "anyphbett9@gmail.com",
   whatsapp: "https://wa.me/254799655757",
   github: "https://github.com/anyph34",
+  linkedin: "https://www.linkedin.com/in/anyph-kipngetich-b9247a354",
 } as const;
 
 export const skillGroups = [

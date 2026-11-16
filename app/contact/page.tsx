@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { ArrowUpRight, GitBranch, Mail, MessageCircle, Phone } from "lucide-react";
+import { ArrowUpRight, GitBranch, Link2, Mail, MessageCircle, Phone } from "lucide-react";
 
 import { ContactForm } from "@/components/contact-form";
 import { CopyEmailButton } from "@/components/copy-email-button";
+import { AvailabilityBadge } from "@/components/availability-badge";
 import { SiteShell } from "@/components/site-shell";
 import { contactDetails } from "@/lib/portfolio";
 
@@ -34,6 +35,7 @@ export default function ContactPage() {
             <h2 className="section-title">
               Reach me <em>here.</em>
             </h2>
+            <AvailabilityBadge />
             <div className="contact-list">
               <a className="contact-card" href={`tel:${contactDetails.phone}`}>
                 <span className="contact-icon"><Phone aria-hidden="true" size={17} /></span>
@@ -70,13 +72,26 @@ export default function ContactPage() {
               <a
                 className="contact-card"
                 href={contactDetails.github}
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 <span className="contact-icon"><GitBranch aria-hidden="true" size={17} /></span>
                 <span>
                   <span className="contact-label">GitHub</span>
                   <span className="contact-value">github.com/anyph34</span>
+                </span>
+                <ArrowUpRight aria-hidden="true" size={15} />
+              </a>
+              <a
+                className="contact-card"
+                href={contactDetails.linkedin}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <span className="contact-icon"><Link2 aria-hidden="true" size={17} /></span>
+                <span>
+                  <span className="contact-label">LinkedIn</span>
+                  <span className="contact-value">linkedin.com/in/anyph-kipngetich-b9247a354</span>
                 </span>
                 <ArrowUpRight aria-hidden="true" size={15} />
               </a>

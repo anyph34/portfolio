@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, GitBranch, Mail, Menu, MessageCircle, Phone, X } from "lucide-react";
+import { ArrowUpRight, GitBranch, Link2, Mail, Menu, MessageCircle, Phone, X } from "lucide-react";
 
 import { contactDetails, portfolioLinks } from "@/lib/portfolio";
 
@@ -107,6 +107,9 @@ export function SiteHeader() {
           <div aria-label="Contact and social links" className="social-links">
             <a aria-label="GitHub profile" className="social-link" href={contactDetails.github} rel="noreferrer" target="_blank">
               <GitBranch aria-hidden="true" size={16} />
+            </a>
+            <a aria-label="LinkedIn profile" className="social-link" href={contactDetails.linkedin} rel="noopener noreferrer" target="_blank">
+              <Link2 aria-hidden="true" size={16} />
             </a>
             <a aria-label="Send an email" className="social-link" href={`mailto:${contactDetails.email}`}>
               <Mail aria-hidden="true" size={16} />

@@ -21,7 +21,11 @@ The contact form submits directly to FormSubmit at `anyphbett9@gmail.com`, so it
 
 ## Profile avatar
 
-The About page uses a self-contained SVG avatar, so there is no image file or external asset to configure.
+The About page uses `public/assets/profile.jpg`, the provided portrait image.
+
+## CV
+
+The CV is served from `public/assets/Anyph_Kipngetich_CV.pdf` and includes a clickable LinkedIn profile link.
 
 ## Quality checks
 
