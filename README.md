@@ -1,6 +1,10 @@
 # Anyph Kipngetich - Developer Portfolio
 
-A responsive, editorial-style portfolio built with Next.js 16, React, TypeScript, and Tailwind CSS. It includes Home, About, Projects, and Contact pages and highlights BiasharaDesk as a flagship case study.
+A responsive, editorial-style portfolio built with Next.js 16, React, TypeScript, and Tailwind CSS. It includes Home, About, Projects, and Contact pages, with StockPilot AI and BiasharaDesk product presentations.
+
+## StockPilot AI
+
+The StockPilot AI concept has a dedicated product landing page at `/stockpilot/` and an interactive sample dashboard at `/stockpilot/dashboard/`. Both use a scoped Pool Blue, Dark Cocoa, and Solar Yellow design system; the portfolio Home and Projects pages include matching previews. The dashboard uses sample data only: it is not connected to a live inventory database or AI service.
 
 ## GitHub Pages
 

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Boxes, Database, Layers3, ShieldCheck } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Boxes, BrainCircuit, Database, Layers3, ShieldCheck } from "lucide-react";
 
 import { BiasharaMock } from "@/components/biashara-mock";
+import { StockPilotPreview } from "@/components/stockpilot-preview";
 import { SiteShell } from "@/components/site-shell";
 
 export const metadata: Metadata = {
   title: "Projects | Anyph Kipngetich",
-  description: "Selected software projects by Anyph Kipngetich, including the BiasharaDesk case study.",
+  description: "Selected software projects by Anyph Kipngetich, including StockPilot AI and BiasharaDesk.",
 };
 
 const projectHighlights = [
@@ -109,6 +110,50 @@ export default function ProjectsPage() {
               GitHub repository
               <ArrowUpRight aria-hidden="true" size={15} />
             </a>
+          </div>
+        </section>
+
+        <section aria-labelledby="stockpilot-title" className="sp-case-study" id="stockpilot">
+          <div className="sp-case-header">
+            <div>
+              <span className="sp-section-label">02 / INVENTORY PRODUCT CONCEPT</span>
+              <h2 id="stockpilot-title">StockPilot AI</h2>
+            </div>
+            <p>
+              A premium inventory management concept for Kenyan retailers and wholesalers. It
+              brings product levels, stock movement, and decision-support ideas into one calm
+              workspace.
+            </p>
+          </div>
+          <div className="sp-case-layout">
+            <div className="sp-portfolio-preview">
+              <StockPilotPreview compact />
+            </div>
+            <div className="sp-case-points">
+              <article>
+                <Boxes aria-hidden="true" size={18} />
+                <strong>Inventory at a glance</strong>
+                <span>Product counts, reorder signals, and stock value in one view.</span>
+              </article>
+              <article>
+                <BrainCircuit aria-hidden="true" size={18} />
+                <strong>Insight-led workflows</strong>
+                <span>Designed to make stock movement easier to notice and act on.</span>
+              </article>
+              <article>
+                <ShieldCheck aria-hidden="true" size={18} />
+                <strong>Built for Kenyan trade</strong>
+                <span>Local currency and retail context shape the product experience.</span>
+              </article>
+            </div>
+          </div>
+          <div className="sp-case-actions">
+            <Link className="sp-button sp-button-yellow" href="/stockpilot">
+              Visit StockPilot <ArrowUpRight aria-hidden="true" size={15} />
+            </Link>
+            <Link className="sp-button sp-button-cream" href="/stockpilot/dashboard">
+              Open sample dashboard <ArrowRight aria-hidden="true" size={15} />
+            </Link>
           </div>
         </section>
 

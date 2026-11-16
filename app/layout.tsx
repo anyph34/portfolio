@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 
 import "./globals.css";
+import "./stockpilot/stockpilot.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-ui",

@@ -5,6 +5,7 @@ import { BiasharaMock } from "@/components/biashara-mock";
 import { HeroSlider } from "@/components/hero-slider";
 import { SiteShell } from "@/components/site-shell";
 import { SkillCard } from "@/components/skill-card";
+import { StockPilotPreview } from "@/components/stockpilot-preview";
 import { skillGroups } from "@/lib/portfolio";
 
 export default function HomePage() {
@@ -66,6 +67,27 @@ export default function HomePage() {
             </div>
             <div className="product-visual">
               <BiasharaMock />
+            </div>
+          </article>
+          <article className="sp-portfolio-showcase">
+            <div className="sp-portfolio-copy">
+              <span className="sp-section-label">02 / INVENTORY PRODUCT · STOCKPILOT AI</span>
+              <h3>Take stock.<br />Move forward.</h3>
+              <p>
+                A considered inventory concept for Kenyan retailers, pairing clear stock control
+                with thoughtful business insight.
+              </p>
+              <div className="sp-portfolio-actions">
+                <Link className="sp-button sp-button-yellow" href="/stockpilot">
+                  Discover StockPilot <ArrowRight aria-hidden="true" size={15} />
+                </Link>
+                <Link className="sp-button sp-button-cream" href="/stockpilot/dashboard">
+                  Explore the demo <ArrowUpRight aria-hidden="true" size={15} />
+                </Link>
+              </div>
+            </div>
+            <div className="sp-portfolio-preview">
+              <StockPilotPreview compact />
             </div>
           </article>
         </section>
