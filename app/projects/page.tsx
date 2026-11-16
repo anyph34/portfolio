@@ -91,7 +91,12 @@ export default function ProjectsPage() {
           </ul>
 
           <div className="button-row">
-            <Link className="button button-primary" href="/login">
+            <Link
+              className="button button-primary"
+              href="https://biasharadesk.vercel.app/login"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Open BiasharaDesk
               <ArrowUpRight aria-hidden="true" size={15} />
             </Link>

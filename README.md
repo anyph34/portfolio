@@ -21,7 +21,7 @@ The contact form submits directly to FormSubmit at `anyphbett9@gmail.com`, so it
 
 ## BiasharaDesk interface
 
-The Home and Projects pages link directly to the hosted BiasharaDesk sign-in interface at `/login/`; visitors do not need to open the source repository to view it. To enable account sign-in and registration on GitHub Pages, add repository Actions secrets named `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`, then redeploy. Configure the Supabase Auth site URL and redirect allowlist for `https://anyph34.github.io/portfolio/`. Do not paste credentials into source files or commit them.
+BiasharaDesk is deployed as a separate Vercel project at [biasharadesk.vercel.app](https://biasharadesk.vercel.app/login). The Home and Projects buttons open its sign-in page in a new tab. To enable sign-in and registration, add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` in the Vercel project's environment variables, then redeploy. Set the Supabase Auth site URL to `https://biasharadesk.vercel.app` and add the Vercel app URL to its redirect allowlist. For the GitHub Pages build, add the same values as repository Actions secrets and allow `https://anyph34.github.io/portfolio/` in Supabase. Do not paste credentials into source files or commit them.
 
 ## Profile avatar
 
