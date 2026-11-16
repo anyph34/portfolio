@@ -92,7 +92,7 @@ export function LoginForm({ title = "Welcome back", description = "Sign in to yo
         <button
           type="submit"
           disabled={status === "loading"}
-          className="w-full rounded-lg bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-[var(--background)] transition hover:bg-[var(--text)] disabled:cursor-not-allowed disabled:opacity-60"
+          className="min-h-11 w-full rounded-lg bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-[var(--text)] transition hover:bg-[var(--secondary)] hover:text-[var(--background)] disabled:cursor-not-allowed disabled:opacity-60"
         >
           {status === "loading" ? "Signing in..." : "Sign in"}
         </button>
@@ -231,7 +231,7 @@ export function RegisterForm({ title = "Create your business account", descripti
         <button
           type="submit"
           disabled={status === "loading"}
-          className="w-full rounded-lg bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-[var(--background)] transition hover:bg-[var(--text)] disabled:cursor-not-allowed disabled:opacity-60"
+          className="min-h-11 w-full rounded-lg bg-[var(--accent)] px-4 py-2.5 text-sm font-semibold text-[var(--text)] transition hover:bg-[var(--secondary)] hover:text-[var(--background)] disabled:cursor-not-allowed disabled:opacity-60"
         >
           {status === "loading" ? "Creating account..." : "Create account"}
         </button>

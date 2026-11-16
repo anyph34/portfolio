@@ -19,9 +19,9 @@ Open [http://localhost:3000](http://localhost:3000).
 
 The contact form submits directly to FormSubmit at `anyphbett9@gmail.com`, so it works on the static GitHub Pages deployment without an API key. FormSubmit may email the recipient a one-time activation request before the first message is delivered.
 
-## Profile photo
+## Profile avatar
 
-Save the portrait image as `public/assets/profile.jpg`. The About page uses it when present and falls back to the initials `AK` when it is missing.
+The About page uses a self-contained SVG avatar, so there is no image file or external asset to configure.
 
 ## Quality checks
 

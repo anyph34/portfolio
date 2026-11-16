@@ -29,10 +29,23 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <Link className="brand" href="/" onClick={() => setIsOpen(false)}>
-        <span className="brand-mark" aria-hidden="true">AK</span>
+        <span className="brand-mark" aria-hidden="true">A</span>
         <span>Anyph Kipngetich</span>
       </Link>
       <span className="header-note">Software / Systems / IT</span>
+      <nav aria-label="Portfolio pages" className="header-nav">
+        {portfolioLinks.map((item) => (
+          <Link
+            aria-current={pathname === item.href ? "page" : undefined}
+            className={`header-nav-link${pathname === item.href ? " is-active" : ""}`}
+            href={item.href}
+            key={item.href}
+            onClick={() => setIsOpen(false)}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
       <button
         aria-hidden={isOpen}
         aria-controls="site-navigation"

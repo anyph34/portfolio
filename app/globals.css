@@ -2,17 +2,22 @@
 
 :root {
   color-scheme: dark;
-  --background: #171717;
-  --surface: #262626;
-  --border: #333333;
-  --text: #f2f2ee;
-  --muted: #9e9e99;
-  --accent: #d4a338;
+  --background: #032030;
+  --surface: #072d42;
+  --border: rgb(99 156 197 / 28%);
+  --text: #f4f7f9;
+  --muted: #a8c3d6;
+  --secondary: #639cc5;
+  --accent: #eb2f33;
 }
 
 @theme inline {
+  --color-*: initial;
   --color-background: var(--background);
   --color-foreground: var(--text);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
   --font-sans: var(--font-ui), sans-serif;
   --font-mono: var(--font-code), monospace;
 }
@@ -22,7 +27,6 @@
 }
 
 html {
-  min-width: 320px;
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
   background: var(--background);
@@ -34,8 +38,9 @@ body {
   background: var(--background);
   color: var(--text);
   font-family: var(--font-ui), sans-serif;
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
 body,
@@ -48,6 +53,15 @@ textarea {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-ui), sans-serif;
 }
 
 button,
@@ -81,7 +95,7 @@ textarea:focus-visible {
 .site-header {
   position: relative;
   z-index: 20;
-  width: min(100% - 48px, 1240px);
+  width: min(100% - 48px, 1200px);
   height: 92px;
   margin: 0 auto;
   border-bottom: 1px solid var(--border);
@@ -106,11 +120,13 @@ textarea:focus-visible {
   height: 38px;
   place-items: center;
   border: 1px solid var(--border);
-  color: var(--text);
   font-family: var(--font-ui), sans-serif;
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: -0.08em;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
 }
 
 .header-note,
@@ -121,7 +137,7 @@ textarea:focus-visible {
 .meta-label,
 .project-number,
 .timeline-date {
-  color: var(--muted);
+  color: var(--secondary);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -131,7 +147,29 @@ textarea:focus-visible {
 
 .header-note {
   margin-left: auto;
-  margin-right: 34px;
+  margin-right: 26px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 28px);
+  margin-right: 24px;
+}
+
+.header-nav-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  transition: color 180ms ease;
+}
+
+.header-nav-link:hover,
+.header-nav-link.is-active {
+  color: var(--accent);
 }
 
 .menu-toggle {
@@ -139,12 +177,12 @@ textarea:focus-visible {
   z-index: 30;
   display: inline-flex;
   min-width: 112px;
-  height: 44px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
   gap: 10px;
   border: 1px solid var(--border);
-  background: transparent;
+  background: var(--background);
   color: var(--text);
   font-size: 11px;
   font-weight: 600;
@@ -188,6 +226,7 @@ textarea:focus-visible {
   right: 0;
   display: flex;
   width: min(480px, 100%);
+  height: 100vh;
   height: 100dvh;
   flex-direction: column;
   justify-content: space-between;
@@ -213,7 +252,7 @@ textarea:focus-visible {
 .drawer-close {
   display: flex;
   min-width: 88px;
-  height: 42px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -238,7 +277,7 @@ textarea:focus-visible {
 
 .menu-overline {
   margin: 0;
-  color: var(--muted);
+  color: var(--secondary);
 }
 
 .drawer-links {
@@ -262,7 +301,7 @@ textarea:focus-visible {
 }
 
 .drawer-link span {
-  color: var(--muted);
+  color: var(--secondary);
   font-family: var(--font-ui), sans-serif;
   font-weight: 500;
   font-size: 10px;
@@ -292,11 +331,11 @@ textarea:focus-visible {
 
 .social-link {
   display: grid;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   place-items: center;
   border: 1px solid var(--border);
-  color: var(--muted);
+  color: var(--secondary);
   transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
@@ -307,7 +346,7 @@ textarea:focus-visible {
 }
 
 .main-content {
-  width: min(100% - 48px, 1240px);
+  width: min(100% - 48px, 1200px);
   margin: 0 auto;
 }
 
@@ -346,13 +385,13 @@ textarea:focus-visible {
 }
 
 .hero-location svg {
-  color: var(--muted);
+  color: var(--secondary);
 }
 
 .hero-slider {
   position: relative;
   display: grid;
-  min-height: min(570px, 68vw);
+  min-height: clamp(520px, 60vw, 700px);
   grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.65fr);
   overflow: hidden;
   border: 1px solid var(--border);
@@ -417,7 +456,7 @@ textarea:focus-visible {
 
 .hero-copy .section-kicker {
   margin-bottom: 20px;
-  color: var(--muted);
+  color: var(--secondary);
 }
 
 .hero-title {
@@ -425,14 +464,14 @@ textarea:focus-visible {
   margin: 0;
   font-family: var(--font-ui), sans-serif;
   font-size: clamp(52px, 8vw, 104px);
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: -0.055em;
   line-height: 0.92;
 }
 
 .hero-title em {
-  color: var(--text);
-  font-weight: 400;
+  color: var(--secondary);
+  font-weight: 600;
 }
 
 .hero-subtitle {
@@ -440,7 +479,7 @@ textarea:focus-visible {
   margin: 22px 0 0;
   color: var(--text);
   font-size: clamp(15px, 2vw, 19px);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.01em;
   line-height: 1.5;
 }
@@ -462,7 +501,7 @@ textarea:focus-visible {
 
 .button {
   display: inline-flex;
-  min-height: 46px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
   gap: 10px;
@@ -481,11 +520,12 @@ textarea:focus-visible {
 
 .button-primary {
   background: var(--accent);
-  color: var(--background);
+  color: var(--text);
 }
 
 .button-primary:hover {
-  background: var(--text);
+  background: var(--secondary);
+  color: var(--background);
 }
 
 .button-outline {
@@ -527,7 +567,7 @@ textarea:focus-visible {
   margin: 0;
   font-family: var(--font-ui), sans-serif;
   font-size: 25px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.12;
 }
 
@@ -547,8 +587,8 @@ textarea:focus-visible {
 
 .slider-arrow {
   display: grid;
-  width: 39px;
-  height: 39px;
+  width: 44px;
+  height: 44px;
   place-items: center;
   border: 1px solid var(--border);
   background: transparent;
@@ -567,16 +607,31 @@ textarea:focus-visible {
 }
 
 .slider-dot {
-  width: 7px;
-  height: 7px;
+  position: relative;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: var(--border);
+  background: transparent;
+}
+
+.slider-dot::before {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--secondary);
+  content: "";
   transition: background 180ms ease, transform 180ms ease;
 }
 
 .slider-dot.is-active {
+  background: transparent;
+}
+
+.slider-dot.is-active::before {
   background: var(--accent);
   transform: scale(1.3);
 }
@@ -599,15 +654,15 @@ textarea:focus-visible {
   margin: 10px 0 0;
   font-family: var(--font-ui), sans-serif;
   font-size: clamp(36px, 5vw, 60px);
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 1;
 }
 
 .section-title em,
 .page-title em {
-  color: var(--text);
-  font-weight: 400;
+  color: var(--secondary);
+  font-weight: 500;
 }
 
 .section-intro {
@@ -633,7 +688,7 @@ textarea:focus-visible {
 }
 
 .project-number {
-  color: var(--muted);
+  color: var(--secondary);
   font-family: var(--font-code), monospace;
 }
 
@@ -641,7 +696,7 @@ textarea:focus-visible {
   margin: 17px 0 0;
   font-family: var(--font-ui), sans-serif;
   font-size: clamp(34px, 4vw, 52px);
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 1;
 }
@@ -665,7 +720,7 @@ textarea:focus-visible {
 .tag-list li {
   padding: 6px 10px;
   border: 1px solid var(--border);
-  color: var(--muted);
+  color: var(--secondary);
   font-family: var(--font-code), monospace;
   font-size: 10px;
   letter-spacing: 0.05em;
@@ -717,7 +772,7 @@ textarea:focus-visible {
 }
 
 .mock-label {
-  color: var(--muted);
+  color: var(--secondary);
   font-size: 9px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -798,7 +853,7 @@ textarea:focus-visible {
 }
 
 .skill-category svg {
-  color: var(--muted);
+  color: var(--secondary);
 }
 
 .skill-category h3 {
@@ -830,7 +885,7 @@ textarea:focus-visible {
 
 .site-footer {
   display: flex;
-  width: min(100% - 48px, 1240px);
+  width: min(100% - 48px, 1200px);
   align-items: center;
   justify-content: space-between;
   gap: 22px;
@@ -856,6 +911,16 @@ textarea:focus-visible {
 }
 
 .footer-contact:hover {
+  color: var(--accent);
+}
+
+.footer-contact svg {
+  color: var(--secondary);
+}
+
+.footer-contact:hover svg,
+.contact-card:hover .contact-icon,
+.contact-card:hover > svg:last-child {
   color: var(--accent);
 }
 
@@ -900,7 +965,7 @@ textarea:focus-visible {
 }
 
 .profile-photo {
-  width: min(100%, 280px);
+  width: min(100%, 320px);
   aspect-ratio: 4 / 5;
   margin: 0;
   overflow: hidden;
@@ -909,23 +974,29 @@ textarea:focus-visible {
   background: var(--surface);
 }
 
-.profile-photo img,
-.profile-photo-fallback {
-  display: grid;
+.profile-avatar-art {
+  display: block;
   width: 100%;
   height: 100%;
 }
 
-.profile-photo img {
-  object-fit: cover;
+.profile-avatar-bust {
+  fill: var(--text);
 }
 
-.profile-photo-fallback {
-  place-items: center;
-  color: var(--accent);
-  font-size: clamp(48px, 7vw, 72px);
-  font-weight: 500;
-  letter-spacing: -0.06em;
+.profile-avatar-detail {
+  fill: none;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-width: 5;
+}
+
+.profile-avatar-letter {
+  fill: var(--accent);
+  font-family: var(--font-ui), sans-serif;
+  font-size: 112px;
+  font-weight: 700;
+  letter-spacing: -0.08em;
 }
 
 .about-pullquote {
@@ -956,6 +1027,10 @@ textarea:focus-visible {
   align-items: center;
   gap: 12px;
   color: var(--muted);
+}
+
+.skill-panel-heading > svg {
+  color: var(--secondary);
 }
 
 .skill-panel-heading h3 {
@@ -997,7 +1072,7 @@ textarea:focus-visible {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--muted);
+  background: var(--accent);
   content: "";
 }
 
@@ -1009,7 +1084,7 @@ textarea:focus-visible {
   margin: 0;
   font-family: var(--font-ui), sans-serif;
   font-size: 23px;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .timeline-place {
@@ -1041,7 +1116,7 @@ textarea:focus-visible {
   margin: 12px 0 0;
   font-family: var(--font-ui), sans-serif;
   font-size: clamp(39px, 6vw, 66px);
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 0.98;
 }
@@ -1086,7 +1161,7 @@ textarea:focus-visible {
 
 .case-detail h3 {
   margin: 0;
-  color: var(--muted);
+  color: var(--secondary);
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1116,14 +1191,14 @@ textarea:focus-visible {
 }
 
 .placeholder-card > svg {
-  color: var(--muted);
+  color: var(--secondary);
 }
 
 .placeholder-card h3 {
   margin: 24px 0 0;
   font-family: var(--font-ui), sans-serif;
   font-size: 29px;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .placeholder-card p {
@@ -1170,12 +1245,12 @@ textarea:focus-visible {
   height: 42px;
   place-items: center;
   border: 1px solid var(--border);
-  color: var(--muted);
+  color: var(--secondary);
 }
 
 .contact-label {
   display: block;
-  color: var(--muted);
+  color: var(--secondary);
   font-size: 9px;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -1190,7 +1265,7 @@ textarea:focus-visible {
 }
 
 .contact-card > svg:last-child {
-  color: var(--muted);
+  color: var(--secondary);
 }
 
 .contact-form {
@@ -1213,7 +1288,7 @@ textarea:focus-visible {
   margin: 0;
   font-family: var(--font-ui), sans-serif;
   font-size: 31px;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .form-heading p {
@@ -1232,7 +1307,7 @@ textarea:focus-visible {
 }
 
 .form-field label {
-  color: var(--muted);
+  color: var(--secondary);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.11em;
@@ -1306,7 +1381,12 @@ textarea:focus-visible {
   padding: 60px 0;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1023px) {
+  .header-note,
+  .header-nav {
+    display: none;
+  }
+
   .hero-slider {
     min-height: 570px;
     grid-template-columns: minmax(0, 1fr) 220px;
@@ -1355,7 +1435,7 @@ textarea:focus-visible {
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 767px) {
   .site-header {
     width: calc(100% - 32px);
     height: 76px;
@@ -1363,7 +1443,7 @@ textarea:focus-visible {
 
   .brand {
     gap: 9px;
-    font-size: 10px;
+    font-size: clamp(9px, 2.8vw, 11px);
     letter-spacing: 0.08em;
   }
 
@@ -1373,13 +1453,9 @@ textarea:focus-visible {
     font-size: 15px;
   }
 
-  .header-note {
-    display: none;
-  }
-
   .menu-toggle {
     min-width: 88px;
-    height: 40px;
+    min-height: 44px;
     font-size: 10px;
   }
 
@@ -1401,8 +1477,9 @@ textarea:focus-visible {
   }
 
   .hero-slider {
-    min-height: unset;
+    min-height: 85svh;
     grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
   }
 
   .hero-slider::before,
@@ -1411,7 +1488,7 @@ textarea:focus-visible {
   }
 
   .hero-copy {
-    min-height: 430px;
+    min-height: 65svh;
     padding: 32px 25px 26px;
   }
 
@@ -1425,7 +1502,7 @@ textarea:focus-visible {
   }
 
   .hero-description {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .hero-aside {
@@ -1455,7 +1532,7 @@ textarea:focus-visible {
 
   .hero-aside-text {
     max-width: 150px;
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .slider-controls {
@@ -1464,8 +1541,8 @@ textarea:focus-visible {
   }
 
   .slider-arrow {
-    width: 35px;
-    height: 35px;
+    width: 44px;
+    height: 44px;
   }
 
   .section-heading-row,
@@ -1508,16 +1585,16 @@ textarea:focus-visible {
   }
 
   .skill-category {
-    min-height: 160px;
+    min-height: 130px;
     padding: 16px;
   }
 
   .skill-category h3 {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .skill-category p {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .contact-cta {
@@ -1572,6 +1649,26 @@ textarea:focus-visible {
   .form-field,
   .form-field.full-width {
     grid-column: 1 / -1;
+  }
+
+  .skills-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-category,
+  .skill-category:nth-child(2) {
+    border-right: 0;
+  }
+
+  .skill-category:not(:last-child) {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .button-row .button,
+  .contact-cta > .button,
+  .form-submit,
+  .copy-email-row .button {
+    width: 100%;
   }
 }
 
