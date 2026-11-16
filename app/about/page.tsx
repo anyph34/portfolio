@@ -133,6 +133,7 @@ export default function AboutPage() {
                 className="button button-outline"
                 download="Anyph_Kipngetich_CV.pdf"
                 href="/assets/Anyph_Kipngetich_CV.pdf"
+                prefetch={false}
               >
                 Download CV
                 <FileDown aria-hidden="true" size={15} />

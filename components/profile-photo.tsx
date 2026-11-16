@@ -1,6 +1,9 @@
 import Image from "next/image";
 
 export function ProfilePhoto() {
+  const profileImage =
+    process.env.GITHUB_PAGES === "true" ? "/portfolio/assets/profile.jpg" : "/assets/profile.jpg";
+
   return (
     <figure className="profile-photo">
       <Image
@@ -9,7 +12,7 @@ export function ProfilePhoto() {
         fill
         priority
         sizes="(max-width: 767px) 100vw, 320px"
-        src="/assets/profile.jpg"
+        src={profileImage}
         unoptimized
       />
     </figure>
