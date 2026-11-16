@@ -2,13 +2,16 @@
 
 :root {
   color-scheme: light;
-  --background: #ffffff;
-  --surface: #ffffff;
+  --color-white: #FFFFFF;
+  --color-black: #050505;
+  --color-blue: #548CFF;
+  --background: var(--color-white);
+  --surface: var(--color-white);
   --border: rgb(5 5 5 / 14%);
-  --text: #050505;
-  --muted: #2d2d2d;
-  --secondary: #548cff;
-  --accent: #548cff;
+  --text: var(--color-black);
+  --muted: var(--color-black);
+  --secondary: var(--color-blue);
+  --accent: var(--color-blue);
 }
 
 @theme inline {
@@ -903,19 +906,19 @@ textarea:focus-visible {
 
 .site-footer {
   display: flex;
-  width: min(100% - 48px, 1200px);
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   gap: 22px;
   margin: 0 auto;
-  padding: 22px 0 28px;
-  background: #050505;
-  color: #ffffff;
+  padding: 22px max(24px, calc((100% - 1200px) / 2)) 28px;
+  background: var(--color-black);
+  color: var(--color-white);
   font-size: 11px;
 }
 
 .footer-brand {
-  color: #ffffff;
+  color: var(--color-white);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -930,7 +933,7 @@ textarea:focus-visible {
   gap: 8px;
   overflow-wrap: anywhere;
   word-break: break-word;
-  color: #ffffff;
+  color: var(--color-white);
   transition: color 180ms ease;
 }
 
@@ -1431,6 +1434,12 @@ textarea:focus-visible {
   .main-content,
   .site-footer {
     width: calc(100% - 32px);
+  }
+
+  .site-footer {
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
   }
 
   .home-page {

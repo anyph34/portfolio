@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://anyph34.github.io/new-respiratory/sitemap.xml
