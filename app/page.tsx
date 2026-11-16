@@ -49,7 +49,7 @@ export default function HomePage() {
                 <li>Multi-tenant</li>
               </ul>
               <div className="button-row">
-                <Link className="button button-primary" href="/projects#biasharadesk">
+                <Link className="button button-primary" href="/projects#case-studies">
                   Read the case study
                   <ArrowRight aria-hidden="true" size={15} />
                 </Link>
@@ -61,7 +61,7 @@ export default function HomePage() {
           </article>
         </section>
 
-        <section aria-labelledby="skills-heading" className="home-section">
+        <section aria-labelledby="skills-heading" className="home-section" id="skills">
           <div className="section-heading-row">
             <div>
               <p className="section-kicker">A practical toolkit</p>

@@ -54,7 +54,7 @@ export default function ProjectsPage() {
           </p>
         </section>
 
-        <section aria-labelledby="biasharadesk-title" className="case-study" id="biasharadesk">
+        <section aria-labelledby="biasharadesk-title" className="case-study" id="case-studies">
           <div className="case-study-header">
             <div>
               <span className="project-number">01 / FLAGSHIP PROJECT</span>

@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: dark;
-  --background: #032030;
-  --surface: #072d42;
-  --border: rgb(99 156 197 / 28%);
-  --text: #f4f7f9;
-  --muted: #a8c3d6;
-  --secondary: #639cc5;
-  --accent: #eb2f33;
+  color-scheme: light;
+  --background: #ffffff;
+  --surface: #ffffff;
+  --border: rgb(5 5 5 / 14%);
+  --text: #050505;
+  --muted: #2d2d2d;
+  --secondary: #548cff;
+  --accent: #548cff;
 }
 
 @theme inline {
@@ -83,7 +83,7 @@ textarea:focus-visible {
 }
 
 ::selection {
-  background: var(--text);
+  background: var(--accent);
   color: var(--background);
 }
 
@@ -93,12 +93,15 @@ textarea:focus-visible {
 }
 
 .site-header {
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 20;
   width: min(100% - 48px, 1200px);
   height: 92px;
   margin: 0 auto;
   border-bottom: 1px solid var(--border);
+  background: rgb(255 255 255 / 90%);
+  backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -540,7 +543,7 @@ textarea:focus-visible {
 
 .button-primary:hover {
   background: var(--secondary);
-  color: var(--background);
+  color: var(--text);
 }
 
 .button-outline {
@@ -906,12 +909,13 @@ textarea:focus-visible {
   gap: 22px;
   margin: 0 auto;
   padding: 22px 0 28px;
-  color: var(--text);
+  background: #050505;
+  color: #ffffff;
   font-size: 11px;
 }
 
 .footer-brand {
-  color: var(--text);
+  color: #ffffff;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -926,6 +930,7 @@ textarea:focus-visible {
   gap: 8px;
   overflow-wrap: anywhere;
   word-break: break-word;
+  color: #ffffff;
   transition: color 180ms ease;
 }
 

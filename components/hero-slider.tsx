@@ -53,7 +53,7 @@ const slides = [
       "BiasharaDesk brings everyday business operations into one workspace, with Kenyan defaults at its core.",
     asideTitle: "BiasharaDesk",
     asideText: "A multi-tenant operations platform for East African businesses.",
-    action: { href: "/projects#biasharadesk", label: "View the case study" },
+    action: { href: "/projects#case-studies", label: "View the case study" },
   },
 ];
 

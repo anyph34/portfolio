@@ -81,7 +81,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section aria-labelledby="education-heading" className="home-section">
+        <section aria-labelledby="education-heading" className="home-section" id="experience">
           <div className="section-heading-row">
             <div>
               <p className="section-kicker">A foundation for the work</p>

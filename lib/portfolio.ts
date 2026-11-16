@@ -1,8 +1,11 @@
 export const portfolioLinks = [
   { href: "/", label: "Home", number: "01" },
   { href: "/about", label: "About", number: "02" },
-  { href: "/projects", label: "Projects", number: "03" },
-  { href: "/contact", label: "Contact", number: "04" },
+  { href: "/#skills", label: "Skills", number: "03" },
+  { href: "/projects", label: "Projects", number: "04" },
+  { href: "/projects#case-studies", label: "Case Studies", number: "05" },
+  { href: "/about#experience", label: "Experience", number: "06" },
+  { href: "/contact", label: "Contact", number: "07" },
 ] as const;
 
 export const contactDetails = {
