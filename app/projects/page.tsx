@@ -91,8 +91,12 @@ export default function ProjectsPage() {
           </ul>
 
           <div className="button-row">
+            <Link className="button button-primary" href="/login">
+              Open BiasharaDesk
+              <ArrowUpRight aria-hidden="true" size={15} />
+            </Link>
             <a
-              className="button button-primary"
+              className="button button-outline"
               href="https://github.com/anyph34/biasharadesk"
               rel="noopener noreferrer"
               target="_blank"

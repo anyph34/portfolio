@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, ArrowUpRight, MapPin } from "lucide-react";
 
 import { BiasharaMock } from "@/components/biashara-mock";
 import { HeroSlider } from "@/components/hero-slider";
@@ -49,7 +49,11 @@ export default function HomePage() {
                 <li>Multi-tenant</li>
               </ul>
               <div className="button-row">
-                <Link className="button button-primary" href="/projects#case-studies">
+                <Link className="button button-primary" href="/login">
+                  Open BiasharaDesk
+                  <ArrowUpRight aria-hidden="true" size={15} />
+                </Link>
+                <Link className="button button-outline" href="/projects#case-studies">
                   Read the case study
                   <ArrowRight aria-hidden="true" size={15} />
                 </Link>
